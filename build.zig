@@ -26,7 +26,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
         .target = target,
     });
-    main_tests.addModule("csv", csv_module);
+    main_tests.root_module.addImport("csv", csv_module);
 
     const run_test_cmd = b.addRunArtifact(main_tests);
     run_test_cmd.has_side_effects = true;
